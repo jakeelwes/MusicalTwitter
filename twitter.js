@@ -15,7 +15,8 @@ var server = http.createServer(function(req, res) {
     access_token_secret: '4BDLpkQCkVFX6KD3bJnuVeExhhxCmjLaNtJCQwS6NYc8F'
   });
 
-  client.get('statuses/user_timeline', function(error, tweets, response){
+  var params = {screen_name: 'jakeelwes'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response){
     if (!error) {
       tweets.map(printTweet);
     } else {
@@ -27,18 +28,18 @@ var server = http.createServer(function(req, res) {
   function printTweet(tweet){
       data = JSON.stringify(tweet);
       console.log(data);
-      res.write(data);
+      res.write("<br>" + data + "</br>");
   }
 
 
-  client.stream('statuses/filter', {track: 'beethoven'}, function(stream) {
+  client.stream('statuses/filter', {track:'John Cage,Philip Glass,Steve Reich,Arvo Pärt,Terry Riley,Franz Joseph Haydn,George Frederick Handel,Sergei Rachmaninov,Peter Ilyich Tchaikovsky,Gustav Mahler,Giuseppe Verdi,Antonio Vivaldi,Igor Stravinsky,Felix Mendelssohn,Claude Debussy,Johannes Brahms,Franz Liszt,Frederic Chopin,Robert Schumann,Franz Schubert,Richard Wagner,Ludwig van Beethoven,Wolfgang Amadeus Mozart,Johann Sebastian Bach'}, function(stream) {
     stream.on('data', printTweet);
     // stream.on('error', function(error) {
     //   throw error;
     // });
   });
 
-  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Type', 'text/html');
 
 });
 
