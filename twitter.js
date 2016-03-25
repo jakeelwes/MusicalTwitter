@@ -1,11 +1,15 @@
 var http = require("http");
-var port = 3000;
-var serverUrl = "localhost";
+var express = require('express');
+var app = express();
+var body_parser = require('body-parser');
+// var port = 3000;
+// var serverUrl = "localhost";
+//
+// var server = http.createServer(function(req, res) {
+//
+//   console.log("Request: " + req.url);
 
-var server = http.createServer(function(req, res) {
-
-  console.log("Request: " + req.url);
-
+app.get('/', function (req, res) {
 
   var Twitter = require('twitter');
   var client = new Twitter({
@@ -24,24 +28,42 @@ var server = http.createServer(function(req, res) {
     }
   });
 
+
   var data;
   function printTweet(tweet){
       data = JSON.stringify(tweet);
       console.log(data);
-      res.write("<br>" + data + "</br>");
-  }
+      res.send("<br>" + data + "</br>");
+    }
 
 
-  client.stream('statuses/filter', {track:'John Cage,Philip Glass,Steve Reich,Arvo Pärt,Terry Riley,Franz Joseph Haydn,George Frederick Handel,Sergei Rachmaninov,Peter Ilyich Tchaikovsky,Gustav Mahler,Giuseppe Verdi,Antonio Vivaldi,Igor Stravinsky,Felix Mendelssohn,Claude Debussy,Johannes Brahms,Franz Liszt,Frederic Chopin,Robert Schumann,Franz Schubert,Richard Wagner,Ludwig van Beethoven,Wolfgang Amadeus Mozart,Johann Sebastian Bach'}, function(stream) {
+
+  client.stream('statuses/filter', {track:'John Cage,Franz Joseph Haydn,George Frederick Handel,Sergei Rachmaninov,Peter Ilyich Tchaikovsky,Gustav Mahler,Giuseppe Verdi,Antonio Vivaldi,Igor Stravinsky,Felix Mendelssohn,Claude Debussy,Johannes Brahms,Franz Liszt,Frederic Chopin,Robert Schumann,Franz Schubert,Richard Wagner,Richard Strauss,Giacomo Puccini,Antonin Dvorak,Maurice Ravel,Dmitri Shostakovich,Sergei Prokofiev,Hector Berlioz,Jean Sibelius,Edward Elgar,Bela Bartok,Arnold Schoenberg,Aaron Copland,Henry Purcell,Niccolo Paganini,Gioachino Rossini,Ludwig van Beethoven,Wolfgang Amadeus Mozart,Johann Sebastian Bach'}, function(stream) {
     stream.on('data', printTweet);
-    // stream.on('error', function(error) {
-    //   throw error;
-    // });
+    stream.on('error', function(error) {
+      // throw error;
+    });
   });
+});
+  // res.setHeader('Content-Type', 'text/html');
 
-  res.setHeader('Content-Type', 'text/html');
 
+  app.use(body_parser.json())
+  app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Methods', 'GET, POST')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With')
+    next()
+  })
+
+
+
+  app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
 
-console.log("Listening at " + serverUrl + ":" + port);
-server.listen(port, serverUrl);
+
+// });
+
+// console.log("Listening at " + serverUrl + ":" + port);
+// server.listen(port, serverUrl);

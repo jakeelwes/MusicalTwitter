@@ -10,8 +10,6 @@
 
 <body>
 
-
-
 <script>
 var obj = {"created_at":"Thu Mar 17 14:36:07 +0000 2016","id":710474803451289600,"id_str":"710474803451289600","text":"RT @MusicHstryMttrs: \"Too many pieces of music finish too long after the end.\" - Igor Stravinsky","source":"Twitter for Android","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":4808605970,"id_str":"4808605970","name":"Fernando","screen_name":"fermerol","location":null,"url":null,"description":null,"protected":false,"verified":false,"followers_count":13,"friends_count":29,"listed_count":0,"favourites_count":96,"statuses_count":125,"created_at":"Sun Jan 24 17:48:35 +0000 2016","utc_offset":null,"time_zone":null,"geo_enabled":false,"lang":"es","contributors_enabled":false,"is_translator":false,"profile_background_color":"F5F8FA","profile_background_image_url":"","profile_background_image_url_https":"","profile_background_tile":false,"profile_link_color":"2B7BB9","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"profile_image_url":"http://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png","profile_image_url_https":"https://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png","default_profile":true,"default_profile_image":true,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Thu Mar 17 13:01:42 +0000 2016","id":710451039770644500,"id_str":"710451039770644480","text":"\"Too many pieces of music finish too long after the end.\" - Igor Stravinsky","source":"Buffer","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":484221718,"id_str":"484221718","name":"MusicHistoryMatters","screen_name":"MusicHstryMttrs","location":"Orlando, FL","url":"http://www.MusicHistoryMatters.com","description":"#Musicology for the rest of us. #Musichistory notes, quotes, and more from the casual #musicologist John Eric Copeland.","protected":false,"verified":false,"followers_count":1651,"friends_count":711,"listed_count":31,"favourites_count":67,"statuses_count":663,"created_at":"Sun Feb 05 21:29:29 +0000 2012","utc_offset":-14400,"time_zone":"Eastern Time (US & Canada)","geo_enabled":false,"lang":"en","contributors_enabled":false,"is_translator":false,"profile_background_color":"000000","profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png","profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png","profile_background_tile":false,"profile_link_color":"6C5945","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_text_color":"000000","profile_use_background_image":false,"profile_image_url":"http://pbs.twimg.com/profile_images/683694162689036288/XIwA1dY1_normal.jpg","profile_image_url_https":"https://pbs.twimg.com/profile_images/683694162689036288/XIwA1dY1_normal.jpg","profile_banner_url":"https://pbs.twimg.com/profile_banners/484221718/1451840150","default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":4,"favorite_count":2,"entities":{"hashtags":[],"urls":[],"user_mentions":[],"symbols":[]},"favorited":false,"retweeted":false,"filter_level":"low","lang":"en"},"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"urls":[],"user_mentions":[{"screen_name":"MusicHstryMttrs","name":"MusicHistoryMatters","id":484221718,"id_str":"484221718","indices":[3,19]}],"symbols":[]},"favorited":false,"retweeted":false,"filter_level":"low","lang":"en","timestamp_ms":"1458225367783"};
 obj.text = "<p>" + obj.text + "</p>";
@@ -43,7 +41,7 @@ var synth = new Tone.PolySynth(8, Tone.SimpleSynth, {
 // 3 for Major
 // 4 for Chromatic
 
-var scale = 3; //(Math.floor((Math.random() * 4) + 1));
+var scale = 4; //(Math.floor((Math.random() * 4) + 1));
 
 var sequence = JSON.stringify(obj2.text); //obj or obj.text, tweet or raw JSON
 // hi = ["Gb7", "G8"];
@@ -59,7 +57,8 @@ seq.start(0);
 seq.loop = 1;
 Tone.Transport.bpm.value = (Math.floor((Math.random() * 900) + 90));
 Tone.Transport.start();
-Tone.Master.volume = -10;
+Tone.Master.volume.value = -14;
+
 
 
 
