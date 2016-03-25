@@ -8,9 +8,10 @@
   "dependencies": {
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",
+    "ejs": "^2.4.1",
     "express": "~4.13.1",
-    "twitter": "~1.2.5",
-    "http": "~0.0.0"
+    "http": "~0.0.0",
+    "twitter": "~1.2.5"
   },
   "description": "A barebones Node.js app using [Express 4](http://expressjs.com/).",
   "main": "index.js",
