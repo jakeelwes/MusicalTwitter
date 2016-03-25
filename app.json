@@ -1,7 +1,7 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
+  "name": "Music for a Dead Composer",
+  "description": "composiing music from tweet whenever a dead composer is mentioned on twitter",
+  "repository": "https://github.com/jakeelwes/MusicalTwitter",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"

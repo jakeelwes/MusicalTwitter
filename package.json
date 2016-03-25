@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "musicforadeadcomposer",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,5 +11,17 @@
     "express": "~4.13.1",
     "twitter": "~1.2.5",
     "http": "~0.0.0"
-  }
+  },
+  "description": "A barebones Node.js app using [Express 4](http://expressjs.com/).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakeelwes/MusicalTwitter.git"
+  },
+  "author": "Jake Elwes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakeelwes/MusicalTwitter/issues"
+  },
+  "homepage": "https://github.com/jakeelwes/MusicalTwitter"
 }
