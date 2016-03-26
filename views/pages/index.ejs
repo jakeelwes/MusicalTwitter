@@ -13,6 +13,7 @@
 
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script>
+  var socket = io.connect('http://musicforadeadcomposer.herokuapp.com:/8080');
   var socket = io.connect('http://localhost:8080');
   socket.on('news', function (data) {
     console.log(data);
@@ -22,8 +23,8 @@
     delete obj.retweeted_status;
     delete obj.entities;
     delete obj.source;
-    delete
-    $("body").prepend("<div>" + JSON.stringify(obj) + "</div>")
+    delete obj.extended_entities;
+    $("body").prepend("<div style=\"opacity:1\">" + JSON.stringify(obj) + "</div>").fadeIn();
 
 
 // var dist = new Tone.AutoWah(50, 6, -30).toMaster();
