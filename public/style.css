@@ -3,8 +3,8 @@ body {
   /*background-image: radial-gradient(ellipse farthest-corner at 45px 45px , #112222 0%,#000 50%, #222244 95%);*/
   color: #888;
   font-family: "Courier", monospace;
-  padding: 90;
-  margin: 20;
+  padding: 90px;
+  margin: 20px;
   word-wrap: break-word;
   }
 
